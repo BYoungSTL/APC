@@ -106,14 +106,14 @@ void init()
 {
 	// IRQ 0-7
 	// Сохраняем старые значения векторов прерываний ведущего контроллера
-	oldHandle90 = getvect(0x08); // Timer
-	oldHandle91 = getvect(0x09); // Keyboard
-	oldHandle92 = getvect(0x0A); // Slave IRQ
-	oldHandle93 = getvect(0x0B); // Random deviece
-	oldHandle94 = getvect(0x0C); // Random deviece
-	oldHandle95 = getvect(0x0D); // Random deviece
-	oldHandle96 = getvect(0x0E); // Random deviece
-	oldHandle97 = getvect(0x0F); // Random deviece
+	oldHandleC8 = getvect(0x08); // Timer
+	oldHandleC9 = getvect(0x09); // Keyboard
+	oldHandleD0 = getvect(0x0A); // Slave IRQ
+	oldHandleD1 = getvect(0x0B); // Random deviece
+	oldHandleD2 = getvect(0x0C); // Random deviece
+	oldHandleD3 = getvect(0x0D); // Random deviece
+	oldHandleD9 = getvect(0x0E); // Random deviece
+	oldHandleD5 = getvect(0x0F); // Random deviece
 
 	// IRQ 8-15
 	// Сохраняем старые значения векторов прерываний ведомого контроллера
@@ -153,7 +153,7 @@ void init()
 	// Master
 	//Оtправляем значение в порт
 	outp(0x20, 0x11); // ICW1
-	outp(0x21, 0x90); // ICW2	// номер обработчика
+	outp(0x21, 0xC8); // ICW2	// номер обработчика
 	outp(0x21, 0x04); // ICW3	// Номер выхода ведомого котроллера
 	outp(0x21, 0x01); // ICW4	// Тип процессора 8086
 
